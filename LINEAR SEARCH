@@ -19,3 +19,46 @@ public class Main {
         return -1;
     }
     }
+
+
+From user made inputs
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Taking input for array size
+        System.out.print("Enter the number of elements in the array: ");
+        int n = scanner.nextInt();
+
+        int[] nums = new int[n];
+
+        // Taking input for array elements
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            nums[i] = scanner.nextInt();
+        }
+
+        // Taking input for the element to search
+        System.out.print("Enter the element to search: ");
+        int target = scanner.nextInt();
+
+        // Calling the linear search function
+        int ans = linearSearch(nums, target);
+            System.out.println("Element found at index: " + ans);
+    }
+
+    // Linear search function
+    static int linearSearch(int[] arr, int target) {
+        if (arr.length == 0) {
+            return -1;
+        }
+        for (int index = 0; index < arr.length; index++) {
+            if (arr[index] == target) {
+                return index; // Return index if element is found
+            }
+        }
+        return -1; // Return -1 if element is not found
+    }
+}
